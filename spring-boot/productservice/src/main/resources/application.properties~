@@ -1,0 +1,2 @@
+spring.application.name=productservice
+eureka.instance.client.serviceUrl.defaultZone=http://localhost:8761/eureka/

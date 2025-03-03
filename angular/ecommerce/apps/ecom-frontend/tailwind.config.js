@@ -27,7 +27,6 @@ module.exports = {
     require('@tailwindcss/typography'),
     require('daisyui'),
   ],
-  // Konfigurasi daisyUI dipindahkan ke level root
   daisyui: {
     themes: [
       {
@@ -36,7 +35,7 @@ module.exports = {
           'primary-content': 'white',
           secondary: '#F6F6F6',
           neutral: '#E8E8E8',
-          'base-100': '#ffffff', // override background default
+          'base-100': '#ffffff',
         },
       },
     ],

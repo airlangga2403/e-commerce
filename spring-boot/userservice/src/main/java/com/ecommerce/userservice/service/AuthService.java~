@@ -1,0 +1,7 @@
+package com.ecommerce.userservice.service;
+
+public interface AuthService {
+    SuccessResponse registerUser(RegisterRequest registerRequest);
+
+    JwtResponse loginUser(LoginRequest loginRequest);
+}
