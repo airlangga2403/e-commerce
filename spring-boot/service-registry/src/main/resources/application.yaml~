@@ -2,4 +2,4 @@ spring:
   application:
     name: ecommerce-discovery
   config:
-    import: optional:configserver:http://localhost:9091
+    import: optional:configserver:http://localhost:9090

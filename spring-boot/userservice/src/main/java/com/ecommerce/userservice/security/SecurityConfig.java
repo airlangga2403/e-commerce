@@ -1,6 +1,7 @@
 package com.ecommerce.userservice.security;
 
 
+import com.ecommerce.userservice.constant.ResourceURL;
 import com.ecommerce.userservice.dto.response.BaseResponse;
 import com.ecommerce.userservice.service.UsersService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -37,7 +38,7 @@ import java.util.List;
 @EnableMethodSecurity()
 @Slf4j
 public class SecurityConfig {
-
+//
     @Autowired
     private JwtAuthFilter jwtAuthFilter;
 
@@ -53,8 +54,8 @@ public class SecurityConfig {
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .authorizeHttpRequests()
                 .requestMatchers(
-                        "/auth/login",
-                        "/auth/register"
+                        ResourceURL.BASE_URL + ResourceURL.LOGIN,
+                        ResourceURL.BASE_URL + ResourceURL.REGISTER
                 )
                 .permitAll()
                 .and()

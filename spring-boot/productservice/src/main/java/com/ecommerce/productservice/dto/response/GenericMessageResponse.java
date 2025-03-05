@@ -1,10 +1,9 @@
-package com.ecommerce.userservice.dto.response;
+package com.ecommerce.productservice.dto.response;
 
 import org.springframework.http.HttpStatus;
 
 public class GenericMessageResponse<T> extends BaseResponse<T> {
 
-    // Tambahan field khusus GenericMessageResponse
     private boolean succes = false;
 
     public GenericMessageResponse(int status, String message) {
@@ -18,7 +17,6 @@ public class GenericMessageResponse<T> extends BaseResponse<T> {
         super();
     }
 
-    // Static factory method untuk response gagal
     public static <T> GenericMessageResponse<T> failedResponse(String message) {
         return failedResponse(HttpStatus.BAD_REQUEST.value(), message, null);
     }
@@ -34,7 +32,6 @@ public class GenericMessageResponse<T> extends BaseResponse<T> {
         return response;
     }
 
-    // Static factory method untuk response sukses
     public static <T> GenericMessageResponse<T> successfulResponse(String message, T data) {
         return successfulResponse(HttpStatus.OK.value(), message, data);
     }

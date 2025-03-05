@@ -1,0 +1,75 @@
+eureka:
+  client:
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    hostname: localhost
+
+server:
+  port: 7080
+
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: users-service
+          uri: http://localhost:8081
+          predicates:
+            - Path=/api/v1/users/**
+        - id: product-service
+          uri: http://localhost:8082
+          predicates:
+            - Path=/api/v1/product/**
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+
+
+#
+#eureka:
+#  client:
+#    register-with-eureka: false
+#
+#server:
+#  port: 8222
+#
+#spring:
+#  application:
+#    name: binar-gateway
+#  cloud:
+#    gateway:
+#      default-filters:
+#        - DedupeResponseHeader=Access-Control-Allow-Origin
+#      globalcors:
+#        cors-configurations:
+#          "[/**]":
+#            allowCredentials: true
+#            allowedOriginPatterns: "*"
+#            allowedHeaders: "Origin, X-Requested-With, Content-Type, Accept, Content-Length, TOKEN, Authorization"
+#            allowedMethods: "GET, POST, PATCH, PUT, DELETE, OPTIONS"
+#            maxAge: 3628800
+#      discovery:
+#        locator:
+#          enabled: true
+#      routes:
+#        - id: binarfood-service
+#          uri: http://localhost:8070
+#          predicates:
+#            - Path=/api/v1/binarfood/**
+#        - id: binarfood-fcm-service
+#          uri: http://localhost:8058
+#          predicates:
+#            - Path=/api/v1/binar-notification/**
+#
+#management:
+#  tracing:
+#    sampling:
+#      probability: 1.0

@@ -1,0 +1,63 @@
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+spring:
+  application:
+    name: users-service
+    
+server:
+  port: 8081
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  tracing:
+    sampling:
+      probability: 1.0
+
+
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/proj_ecommerce_users?reWriteBatchedInserts=true&preferQueryMode=simple&tcpKeepAlive=true&socketTimeout=30&connectTimeout=30"
+    username: postgres
+    password: "Bangsat@123"
+    hikari:
+      connection-timeout: 30000
+      maximum-pool-size: 10
+      minimum-idle: 2
+      idle-timeout: 10000
+      max-lifetime: 30000
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    generate-ddl: false
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          lob:
+            non_contextual_creation: true
+        format_sql: true
+        use_sql_comments: true
+        generate_statistics: true
+jwt:
+  secret: "aHVtbWVTZWNyZXRLZXlGb3JJc0pXVFNvbWVHZW5lcmF0ZWRLZXk="
+
+logging:
+  level:
+    org:
+      hibernate:
+        stat: debug
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
+    com:
+      ecommerce:
+        userservice: DEBUG

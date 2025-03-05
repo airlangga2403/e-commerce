@@ -1,6 +1,6 @@
-package com.ecommerce.userservice.security;
+package com.ecommerce.productservice.security;
 
-import com.ecommerce.userservice.dto.response.BaseResponse;
+import com.ecommerce.productservice.dto.response.BaseResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.Claims;
 import jakarta.servlet.FilterChain;
